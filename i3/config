@@ -209,6 +209,11 @@ bar {
 ###########################################################
 ## Custom
 
+# Adjust the sound.
+bindsym XF86AudioRaiseVolume exec amixer set Master playback 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master playback 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
+
 # ScreenShot
 bindsym $mod+Ctrl+a exec "deepin-screenshot"
 
@@ -227,9 +232,6 @@ focus_on_window_activation focus
 
 # Go back the last window of the current workspace when switching the workspaces.
 workspace_auto_back_and_forth yes
-
-# Customize the window.
-for_window [class="(?i)thunar"] move container to workspace $WS5, workspace $WS5, layout tabbed
 
 # Set the window border.
 new_window none
@@ -260,9 +262,4 @@ client.unfocused        #999999 #999999 #FFFFFF #3399FF
 client.urgent           #990000 #990000 #FFFFFF #990000
 client.placeholder      #000000 #000000 #FFFFFF #000000
 client.background       #FFFFFF
-
-# Adjust the sound.
-bindsym XF86AudioRaiseVolume exec amixer set Master playback 5%+
-bindsym XF86AudioLowerVolume exec amixer set Master playback 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
 
