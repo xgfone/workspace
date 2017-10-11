@@ -1,0 +1,7 @@
+[user]
+	email = xgfone@126.com
+	name = xgfone
+
+[url "git@gitlab.sndaurl.cn:"]
+	insteadOf = http://gitlab.sndaurl.cn
+

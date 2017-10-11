@@ -1,0 +1,17 @@
+
+*.o
+*.so
+*~
+*.swp
+*.py[cod]
+*.exe
+
+.*
+.DS_Store
+
+tag
+tags
+
+private/
+.vscode/
+

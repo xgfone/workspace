@@ -1,0 +1,45 @@
+-- ===========================================================================
+--                              Conky Bar Config
+--
+-- Requirement:
+--   Conky 1.10+
+--
+-- ===========================================================================
+
+conky.config = {
+    -- Don't output to X
+    out_to_x = false,
+    out_to_console = true,
+
+    background = false,
+    double_buffer = false,
+
+    -- Reflush interval
+    update_interval = 5,
+
+    -- Run duration, which 0 stands for ever.
+    total_run_times = 0,
+
+    -- Must use utf8, which requires the support of xft.
+    override_utf8_locale = false,
+
+    -- Use the abbreviation.
+    short_units = true,
+
+    -- Monitor the port
+    if_up_strictness = 'address',
+
+    cpu_avg_samples = 2,
+    net_avg_smaplee = 2,
+}
+
+conky.text = [[
+ ${upspeed wlp5s0}/s  ${downspeed wlp5s0}/s \
+ ${cpu cpu0}% ${loadavg} \
+ ${memperc}% \
+ ${fs_free /} ${fs_used_perc /}% \
+ ${battery_percent}% \
+${execi 1 amixer | grep -A10 'Master' | sed -rn 's/.*\[([0-9]+%)\].*\[(on|off)\]/\2 \1/p' | sed -n '1p' | sed 's/off.*/ /' | sed -r 's/on( [01234]?[0-9]%)/\1/' | sed -r 's/(on|) 0%/ 0%/' | sed -r 's/on//'} \
+ ${time %a %Y-%m-%d %H:%M:%S}
+]]
+
