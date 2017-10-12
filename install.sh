@@ -57,6 +57,14 @@ install_app -y i3 i3lock conky feh xcompmgr alsamixergui
 ln -s $CWD/i3 $HOME/.config/i3
 
 
+# Install the bin
+HOME_BIN=$HOME/bin
+if ![ -d $HOME_BIN ]; then
+    mkdir -p $HOME_BIN
+fi
+ln -s $CWD/bin/set-display-resolution.sh $HOME_BIN/set-display-resolution.sh
+
+
 # Install the private.
 if [ -x $CWD/private/install.sh ]; then
     $CWD/private/install.sh

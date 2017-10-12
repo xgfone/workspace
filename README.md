@@ -1,6 +1,6 @@
 # workspace
 
-This is my workspace configuration.
+This is my Linux workspace configuration.
 
 ## Install
 
