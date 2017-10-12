@@ -5,6 +5,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $font DejaVu Sans Mono
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -13,7 +14,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono, Icons 8
+font pango:$font, Icons 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -33,7 +34,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -b -fn 'DejaVu Sans Mono' -nb '#333333' -nf '#ffffff' -sb '#111111' -sf '#3399ff'
+bindsym $mod+d exec dmenu_run -b -fn '$font'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -190,18 +191,8 @@ bar {
     #separator_symbol " | "
 
     colors {
-        background #333333
-        statusline #FFFFFF
-
+        background #555555
         separator  #3399FF
-
-        # Workspace Color
-        #  Workspace        Border  BG      Text
-        #focused_workspace  #111111 #111111 #FFFFFF
-        #active_workspace   #FFFFFF #FFFFFF #FFFFFF
-        #inactive_workspace #333333 #333333 #FFFFFF
-        #urgent_workspace   #990000 #990000 #FFFFFF
-        #binding_mode       #990000 #990000 #FFFFFF
     }
 }
 
@@ -255,12 +246,4 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id systemctl poweroff, mode "default"
     bindsym Escape mode "default"
 }
-
-# Window color          Border  BG      Text    Tip
-client.focused          #333333 #333333 #FFFFFF #333333
-client.focused_inactive #999999 #999999 #FFFFFF #3399FF
-client.unfocused        #999999 #999999 #FFFFFF #3399FF
-client.urgent           #990000 #990000 #FFFFFF #990000
-client.placeholder      #000000 #000000 #FFFFFF #000000
-client.background       #FFFFFF
 
