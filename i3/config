@@ -105,7 +105,7 @@ set $WS0 10:
 
 # Workspace names
 workspace $WS1 output VGA-1
-workspace $WS2 output DVI-I-1
+workspace $WS2 output VGA-1
 workspace $WS3 output VGA-1
 workspace $WS4 output DVI-I-1
 workspace $WS5 output VGA-1
