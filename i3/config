@@ -92,28 +92,28 @@ bindsym $mod+a focus parent
 # Set the workspace names
 # See https://github.com/ryanoasis/nerd-fonts
 # 1:Terminal  2:Web Browser  3:Editor  4:Media  5:Windows
-set $WS1  1:
-set $WS2  2:
-set $WS3  3:
-set $WS4  4:
-set $WS5  5:
-set $WS6  6:
-set $WS7  7:
-set $WS8  8:
-set $WS9  9:
-set $WS0 10:
+set $WS1 1:
+set $WS2 2:
+set $WS3 3:
+set $WS4 4:
+set $WS5 5:
+set $WS6 6:
+set $WS7 7:
+set $WS8 8:
+set $WS9 9:
+set $WS0 10:
 
 # Workspace names
 workspace $WS1 output VGA-1
 workspace $WS2 output VGA-1
 workspace $WS3 output VGA-1
-workspace $WS4 output DVI-I-1
+workspace $WS4 output VGA-1
 workspace $WS5 output VGA-1
 workspace $WS6 output DVI-I-1
-workspace $WS7 output VGA-1
-workspace $WS8 output VGA-1
-workspace $WS9 output VGA-1
-workspace $WS0 output VGA-1
+workspace $WS7 output DVI-I-1
+workspace $WS8 output DVI-I-1
+workspace $WS9 output DVI-I-1
+workspace $WS0 output DVI-I-1
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
