@@ -15,7 +15,7 @@ conky.config = {
     double_buffer = false,
 
     -- Reflush interval
-    update_interval = 5,
+    update_interval = 2,
 
     -- Run duration, which 0 stands for ever.
     total_run_times = 0,
