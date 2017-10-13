@@ -35,7 +35,7 @@ conky.config = {
 
 conky.text = [[
  ${upspeed wlp5s0}/s  ${downspeed wlp5s0}/s \
- ${cpu cpu0}% ${loadavg 15} \
+ ${cpu cpu0}% ${loadavg 3} \
  ${memperc}% \
  ${fs_free /} ${fs_used_perc /}% \
  ${battery_percent}% \
