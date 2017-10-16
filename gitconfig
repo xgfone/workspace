@@ -5,3 +5,5 @@
 [url "git@gitlab.sndaurl.cn:"]
 	insteadOf = http://gitlab.sndaurl.cn
 
+[core]
+	editor = vim
