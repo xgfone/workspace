@@ -54,6 +54,8 @@ fi
 # Install and configure i3wm
 ensure_app i3 i3lock conky feh xcompmgr alsamixergui
 ln -s $CWD/i3 $HOME/.config/i3
+$SUDO sed -i 's/^user-session=.*/user-session=i3/g' /etc/lightdm/lightdm.conf
+$SUDO sed -i 's/^#user-session=.*/user-session=i3/g' /etc/lightdm/lightdm.conf
 
 
 # Install the bin
