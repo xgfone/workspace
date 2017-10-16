@@ -26,15 +26,17 @@ ensure_app()
     done
 }
 
-# Install the commom packages
+# Install and configure the commom packages
 ensure_app curl git ssh
+ln -s $CWD/gitconfig $HOME/.gitconfig
 
 
 # Get the workspace configure from Github
-if ![ -d $CWD ]; then
-    git clone git@github.com:xgfone/workspace $CWD && $CWD/install.sh && echo "Install successfully" && exit 0
+if ! [ -d $CWD ]; then
+    git clone https://github.com/xgfone/workspace $CWD && bash -x $CWD/install.sh && echo "Install successfully" && exit 0
+    exit_code=$?
     echo "Failed to install"
-    exit $?
+    exit $exit_code
 fi
 
 
@@ -42,24 +44,21 @@ fi
 $SUDO cp $CWD/fonts/* /usr/share/fonts && $SUDO fc-cache -v
 
 
-# Install and configure git
-install_app -y git && ln -s $CWD/gitconfig $HOME/.gitconfig
-
-
 # Install and configure vim
-install_app -y vim
-curl -sLf https://spacevim.org/install.sh | bash 
-ln -s $CWD/SpaceVim.d $HOME/.SpaceVim.d
-
+ensure_app vim
+if ! [ -d $HOME/.SpaceVim ]; then
+    curl -sLf https://spacevim.org/install.sh | bash 
+    ln -s $CWD/SpaceVim.d $HOME/.SpaceVim.d
+fi
 
 # Install and configure i3wm
-install_app -y i3 i3lock conky feh xcompmgr alsamixergui
+ensure_app i3 i3lock conky feh xcompmgr alsamixergui
 ln -s $CWD/i3 $HOME/.config/i3
 
 
 # Install the bin
 HOME_BIN=$HOME/bin
-if ![ -d $HOME_BIN ]; then
+if ! [ -d $HOME_BIN ]; then
     mkdir -p $HOME_BIN
 fi
 ln -s $CWD/bin/set-display-resolution.sh $HOME_BIN/set-display-resolution.sh
