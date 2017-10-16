@@ -65,7 +65,7 @@ ln -s $CWD/bin/set-display-resolution.sh $HOME_BIN/set-display-resolution.sh
 
 
 # Install the private.
-if [ -x $CWD/private/install.sh ]; then
-    $CWD/private/install.sh
+if [ -f $CWD/private/install.sh ]; then
+    bash -x $CWD/private/install.sh
 fi
 
