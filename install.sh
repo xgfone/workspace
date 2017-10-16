@@ -27,7 +27,7 @@ ensure_app()
 }
 
 # Install and configure the commom packages
-ensure_app curl git ssh
+ensure_app curl git ssh axel wget
 ln -s $CWD/gitconfig $HOME/.gitconfig
 
 
