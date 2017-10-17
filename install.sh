@@ -39,6 +39,12 @@ if ! [ -d $CWD ]; then
     exit $exit_code
 fi
 
+if 
+
+if [ "ARG$1" == "ARG--all" ]; then
+    bash -x $CWD/install-all.sh
+    exit $?
+fi
 
 # Install the fonts
 cp $CWD/fonts/* $HOME/.local/share/fonts && fc-cache -fv
