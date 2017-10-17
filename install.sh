@@ -41,7 +41,7 @@ fi
 
 
 # Install the fonts
-$SUDO cp $CWD/fonts/* /usr/share/fonts && $SUDO fc-cache -v
+cp $CWD/fonts/* $HOME/.local/share/fonts && fc-cache -fv
 
 
 # Install and configure vim
