@@ -50,6 +50,8 @@ let g:spacevim_default_indent = 4
 let g:spacevim_relativenumber = 0
 let g:spacevim_colorscheme = 'one'
 let g:spacevim_guifont = 'DejaVu\ Sans\ Mono\ for\ Powerline\ 14'
+let g:spacevim_colorscheme = "one"
+let g:spacevim_colorscheme_bg = "light"
 
 
 "===================================================================
