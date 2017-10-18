@@ -21,4 +21,4 @@ $CWD/install-wechat.sh $ARGS || exit 1
 $CWD/install-dbeaver.sh $ARGS || exit 1
 $CWD/install-pip.sh $ARGS || exit 1
 $CWD/install-nerdfonts.sh $ARGS || exit 1
-
+$CWD/install-zsh.sh $ARGS || exit 1
