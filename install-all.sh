@@ -17,6 +17,7 @@ fi
 $CWD/install-fcitx.sh $ARGS || exit 1
 $CWD/install-go.sh $ARGS || exit 1
 $CWD/install-yixin.sh $ARGS || exit 1
+$CWD/install-youdao-note.sh $ARGS || exit 1
 $CWD/install-wechat.sh $ARGS || exit 1
 $CWD/install-dbeaver.sh $ARGS || exit 1
 $CWD/install-pip.sh $ARGS || exit 1
