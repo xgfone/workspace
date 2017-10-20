@@ -85,6 +85,8 @@ set timeoutlen=400 " The default delay time(ms)
 
 set synmaxcol=200 " Set the max highlight columns
 
+set colorcolumn=80,100,120 " Set the color columns
+
 " Source the vimrc file after saving it
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
