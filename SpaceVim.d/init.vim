@@ -63,9 +63,6 @@ let g:spacevim_colorscheme_bg = "light"
 set nocompatible
 filetype plugin indent on
 
-let mapleader = ';'
-let g:mapleader = ';'
-
 " Disable the unused vim built-in plugins
 let g:loaded_gzip = 0
 let g:loaded_2html_plugin = 1
@@ -82,9 +79,7 @@ let g:loaded_zipPlugin = 1
 
 set timeout " For mapping
 set timeoutlen=400 " The default delay time(ms)
-
 set synmaxcol=200 " Set the max highlight columns
-
 set colorcolumn=80,100,120 " Set the color columns
 
 " Source the vimrc file after saving it
@@ -93,5 +88,17 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " Strip the whitespace by default when saving.
 autocmd BufEnter * StripWhitespace  " Toggle to load the plugin ntpeters/vim-better-whitespace
 autocmd BufEnter * EnableStripWhitespaceOnSave
-map <F9> :StripWhitespace<CR>
-imap <F9> :StripWhitespace<CR>
+
+
+" {{ taglist
+let g:Tlist_Use_Right_Window = get(g:, 'Tlist_Use_Right_Window', 0)
+let g:Tlist_Auto_Open = get(g:, 'Tlist_Auto_Open', 0)
+" }} taglist
+
+
+"==================================================================
+"                          Key mapping
+"==================================================================
+"map <F9> :StripWhitespace<CR>
+"imap <F9> :StripWhitespace<CR>
+"noremap <silent> <F8> :TagbarToggle<CR>
