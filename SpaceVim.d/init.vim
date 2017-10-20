@@ -91,6 +91,7 @@ set colorcolumn=80,100,120 " Set the color columns
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Strip the whitespace by default when saving.
-"autocmd BufEnter * StripWhitespace  " Toggle to load the plugin ntpeters/vim-better-whitespace
-"autocmd BufEnter * EnableStripWhitespaceOnSave
+autocmd BufEnter * StripWhitespace  " Toggle to load the plugin ntpeters/vim-better-whitespace
+autocmd BufEnter * EnableStripWhitespaceOnSave
 map <F9> :StripWhitespace<CR>
+imap <F9> :StripWhitespace<CR>
