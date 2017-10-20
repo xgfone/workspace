@@ -8,40 +8,40 @@ fi
 
 GOPATH_BIN=$GOPATH/bin
 GOPATH_SRC=$GOPATH/src
+
 GOLANG_SRC=$GOPATH_SRC/golang.org/x
+GOLANG_GITHUB_URL=https://github.com/GOLANG
 mkdir -p $GOLANG_SRC $GOPATH_BIN
 
-if ! [ -d $GOLANG_SRC/crypto ]; then
-    git clone https://github.com/golang/crypto  $GOLANG_SRC/crypto
-fi 
+download_golang_package()
+{
+    if ! [ -d $GOLANG_SRC/$1 ]; then
+        git clone $GOLANG_GITHUB_URL/$1 $GOLANG_SRC/$1
+    fi
+}
 
-if ! [ -d $GOLANG_SRC/exp ]; then 
-    git clone https://github.com/golang/exp     $GOLANG_SRC/exp
-fi
+download_go_package_from_github()
+{
+    package_dst=github.com/$1
+    if [ -n $2 ]; then
+        package_dst=$2
+    fi
 
-if ! [ -d $GOLANG_SRC/image ]; then 
-    git clone https://github.com/golang/image   $GOLANG_SRC/image
-fi 
+    if ! [ -d $GOPATH_SRC/$package_dst ]; then
+        git clone https://github.com/$1 $GOPATH_SRC/$package_dst
+    fi
+}
 
-if ! [ -d $GOLANG_SRC/mobile ]; then
-    git clone https://github.com/golang/mobile  $GOLANG_SRC/mobile
-fi
-
-if ! [ -d $GOLANG_SRC/sys ]; then
-    git clone https://github.com/golang/sys     $GOLANG_SRC/sys
-fi
-
-if ! [ -d $GOLANG_SRC/text ]; then
-    git clone https://github.com/golang/text    $GOLANG_SRC/text
-fi
-
-if ! [ -d $GOLANG_SRC/time ]; then
-    git clone https://github.com/golang/time    $GOLANG_SRC/time
-fi
-
-if ! [ -d $GOLANG_SRC/tools ]; then
-    git clone https://github.com/golang/tools   $GOLANG_SRC/tools
-fi
+download_golang_package crypto
+download_golang_package exp
+download_golang_package image
+download_golang_package mobile
+download_golang_package sys
+download_golang_package text
+download_golang_package time
+download_golang_package tools
+download_go_package_from_github 'dominikh/go-tools' 'honnef.co/go/tools'
+go install 'honnef.co/go/tools/cmd/...'
 
 if [ "ARG$1" != "ARG--all" ]; then
     exit 0
