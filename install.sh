@@ -17,18 +17,29 @@ install_app()
 
 ensure_app()
 {
+    sep=\"":"\"
     for app in "$@"
     do
-        which $app
+        apps=\"$app\"
+        out=`python -c "print "$apps".find($sep)"`
+        if [ "$out" == "-1" ]; then
+            app_name=$app
+            package_name=$app
+        else
+            app_name=`echo $app | cut -d : -f 1`
+            package_name=`echo $app | cut -d : -f 2`
+        fi
+
+        which $app_name
         if [ $? -ne 0 ]; then
-            install_app -y $app
+            install_app -y $package_name
         fi
     done
 }
 
 # Install and configure the commom packages
 # Notice: ctags is exuberant-ctags.
-ensure_app curl git ssh axel wget ctags
+ensure_app curl git ssh:ssh sshd:ssh axel wget ctags
 ln -s $CWD/gitconfig $HOME/.gitconfig
 
 
@@ -39,8 +50,6 @@ if ! [ -d $CWD ]; then
     echo "Failed to install"
     exit $exit_code
 fi
-
-if 
 
 if [ "ARG$1" == "ARG--all" ]; then
     bash -x $CWD/install-all.sh
@@ -54,7 +63,7 @@ cp $CWD/fonts/* $HOME/.local/share/fonts && fc-cache -fv
 # Install and configure vim
 ensure_app vim
 if ! [ -d $HOME/.SpaceVim ]; then
-    curl -sLf https://spacevim.org/install.sh | bash 
+    curl -sLf https://spacevim.org/install.sh | bash
     ln -s $CWD/SpaceVim.d $HOME/.SpaceVim.d
 fi
 
