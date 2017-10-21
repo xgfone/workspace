@@ -95,6 +95,12 @@ let g:Tlist_Use_Right_Window = get(g:, 'Tlist_Use_Right_Window', 0)
 let g:Tlist_Auto_Open = get(g:, 'Tlist_Auto_Open', 0)
 " }} taglist
 
+" {{ go
+" Set the three options to disable the errcheck linter.
+let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=megacheck']
+let g:go_metalinter_enabled = ['vet', 'golint']
+let g:neomake_go_gometalinter_args = ['--disable-all', '--enable=megacheck']
+" }} go
 
 "==================================================================
 "                          Key mapping
