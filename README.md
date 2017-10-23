@@ -2,6 +2,8 @@
 
 This is my Linux workspace configuration.
 
+**Notice:** It's only tested on Deepin Linux 15.4.
+
 ## Install
 
 ```shell
