@@ -73,6 +73,10 @@ ln -s $CWD/i3 $HOME/.config/i3
 $SUDO sed -i 's/^user-session=.*/user-session=i3/g' /etc/lightdm/lightdm.conf
 $SUDO sed -i 's/^#user-session=.*/user-session=i3/g' /etc/lightdm/lightdm.conf
 
+# Install conky
+ensure_app conky
+ln -s $CWD/i3/conkyrc ~/.conkyrc
+
 
 # Install the bin
 HOME_BIN=$HOME/bin
