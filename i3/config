@@ -182,7 +182,7 @@ bindsym $mod+m bar mode toggle
 bar {
     #status_command i3status
     status_command conky -c $HOME/.workspace/i3/conkyrc_bar
-    
+
     position bottom
     #strip_workspace_numbers yes
 
