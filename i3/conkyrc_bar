@@ -15,7 +15,7 @@ conky.config = {
     double_buffer = false,
 
     -- Reflush interval
-    update_interval = 2,
+    update_interval = 3,
 
     -- Run duration, which 0 stands for ever.
     total_run_times = 0,
@@ -33,13 +33,14 @@ conky.config = {
     net_avg_smaplee = 2,
 }
 
+-- ${execi 1 amixer | grep -A10 'Master' | sed -rn 's/.*\[([0-9]+%)\].*\[(on|off)\]/\2 \1/p' | sed -n '1p' | sed 's/off.*/ /' | sed -r 's/on( [01234]?[0-9]%)/\1/' | sed -r 's/(on|) 0%/ 0%/' | sed -r 's/on//'} \
+
 conky.text = [[
  E:${upspeed enp2s0}/s W:${upspeed wlp3s0}/s  E:${downspeed enp2s0}/s W:${downspeed wlp3s0}/s \
  ${cpu cpu0}% ${loadavg 3} \
  ${memperc}% \
  ${fs_free /} ${fs_used_perc /}% \
  ${battery_percent}% \
-${execi 1 amixer | grep -A10 'Master' | sed -rn 's/.*\[([0-9]+%)\].*\[(on|off)\]/\2 \1/p' | sed -n '1p' | sed 's/off.*/ /' | sed -r 's/on( [01234]?[0-9]%)/\1/' | sed -r 's/(on|) 0%/ 0%/' | sed -r 's/on//'} \
- ${time %a %Y-%m-%d %H:%M:%S}
+ ${time %a %Y-%m-%d %T %Z}
 ]]
 
