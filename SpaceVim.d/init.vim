@@ -53,6 +53,7 @@ let g:spacevim_guifont = 'DejaVu\ Sans\ Mono\ for\ Powerline\ 14'
 let g:spacevim_colorscheme = 'one'
 let g:spacevim_colorscheme_bg = 'dark'
 "let g:spacevim_colorscheme = 'desert'
+let g:spacevim_statusline_right_sections = ['fileformat', 'cursorpos', 'percentage', 'date', 'time']
 
 
 "===================================================================
@@ -77,6 +78,10 @@ let g:loaded_spellfile_plugin = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_vimballPlugin = 1
 let g:loaded_zipPlugin = 1
+
+" Set the maximum width of each line.
+set textwidth=120
+autocmd FileType text setlocal textwidth=0
 
 set timeout " For mapping
 set timeoutlen=400 " The default delay time(ms)
